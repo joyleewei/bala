@@ -12,5 +12,21 @@
 */
 Route::get('/','PagesController@root')->name('root');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// 用户登陆页面
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+// 用户登陆-post
+Route::post('login', 'Auth\LoginController@login');
+// 用户退出-post
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+// 用户注册页面
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// 用户注册-post
+Route::post('register', 'Auth\RegisterController@register');
+// 忘记密码页面
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+// 发送重置密码邮件
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+// 带token 的重置密码页面
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+// 带token 密码重置页面 - post
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
