@@ -6,17 +6,15 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Carbon\Carbon;
 
-class AppServiceProvider extends ServiceProvider
-{
+class AppServiceProvider extends ServiceProvider{
     /**
      * Bootstrap any application services.
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot(){
         // mysql 版本低于5.7 ，设置长度
-        Schema::defaultStringLength(191);
+        Schema::defaultStringLength(128);
         Carbon::setLocale('zh');
     }
 
@@ -25,8 +23,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register(){
         //
     }
 }
