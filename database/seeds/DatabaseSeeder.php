@@ -11,7 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        // php artisan db:seed --class=TopicsTableSeeder
+        $this->call(UsersTableSeeder::class);
+        // php artisan db:seed --class=TopicsTableSeeder
 		$this->call(TopicsTableSeeder::class);
     }
 }
