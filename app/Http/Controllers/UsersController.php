@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use App\Handlers\ImageUploadHandler;
-
 class UsersController extends Controller{
 
     public function __construct(){
@@ -20,9 +20,10 @@ class UsersController extends Controller{
     // 编辑用户资料
     public function edit(User $user){
         $this->authorize('update',$user);
-
         return view('users.edit',compact('user'));
     }
+
+
 
     // 更新用户资料
     public function update(UserRequest $request,User $user,ImageUploadHandler $uploader){
