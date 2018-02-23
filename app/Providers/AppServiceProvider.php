@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Carbon\Carbon;
+use App\Models\Topic;
+use App\Observers\TopicObserver;
 
 class AppServiceProvider extends ServiceProvider{
     /**
@@ -16,6 +18,7 @@ class AppServiceProvider extends ServiceProvider{
         // mysql 版本低于5.7 ，设置长度
         Schema::defaultStringLength(128);
         Carbon::setLocale('zh');
+        Topic::observe( new TopicObserver );
     }
 
     /**
