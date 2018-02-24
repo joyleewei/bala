@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}" />
 @stop
@@ -10,6 +9,7 @@
 <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
 <script type="text/javascript">
+
     $(document).ready(function(){
         var editor = new Simditor({
             'textarea':$('#editor'),
@@ -25,7 +25,6 @@
     })
 </script>
 @stop
-
 @section('content')
 <div class="container">
     <div class="col-md-10 col-md-offset-1">
