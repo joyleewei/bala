@@ -2,6 +2,7 @@
 namespace  App\Handlers;
 
 use Image;
+
 class ImageUploadHandler{
     // 只允许一下后缀名的图片文件上传
     protected $allowed_ext = ['png','jpg','gif','jpeg'];

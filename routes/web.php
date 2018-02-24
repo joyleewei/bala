@@ -40,3 +40,6 @@ Route::resource('categories','CategoriesController',['only'=>['show']]);
 
 // 上传图片
 Route::post('upload_image','TopicsController@uploadImage')->name('topics.upload_image');
+// 上传测试
+Route::get('up','TopicsController@up')->name('up');
+Route::post('think_up','TopicsController@think_up')->name('think_up');

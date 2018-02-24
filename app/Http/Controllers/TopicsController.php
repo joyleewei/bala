@@ -10,10 +10,12 @@ use App\Http\Requests\TopicRequest;
 use App\Models\Category;
 use Auth;
 
+use App\Handlers\UploadHandler;
+
 class TopicsController extends Controller{
 
     public function __construct(){
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show','up','think_up']]);
     }
 
 	public function index(Request $request,Topic $topic){
@@ -78,5 +80,49 @@ class TopicsController extends Controller{
             }
         }
         return $data;
+    }
+
+    public function up(){
+        return view('topics.up');
+    }
+
+    public function think_up(){
+        $savepath=date('Ymd').'/';
+        $config=array(
+            // /home/centos/public_html/bala/public/uploads
+            'rootPath' => public_path('uploads'),
+            'savePath' => '/'.$savepath,
+            'maxSize' => 11048576,
+            'saveName'   =>    array('uniqid',''),
+            'exts'       =>    array('jpg','gif','png','jpeg'),
+            'autoSub'    =>    false,
+        );
+
+        $upload = new UploadHandler($config);
+        $info = $upload->upload();
+        //开始上传
+        if ($info){
+            //上传成功
+            //写入附件数据库信息
+            $first=array_shift($info);
+            if(!empty($first['url'])){
+                $url=$first['url'];
+            }else{
+                $url = '/update/'.$first['savepath'].$first['savename'];
+            }
+            $data = array(
+                'status'=>'success',
+                'url' => $url,
+                'name'=>$first['name']
+
+            );
+        } else {
+            //上传失败，返回错误
+            $data = array(
+                'status'=>'error',
+                'error'=>$upload->getError()
+            );
+
+        }
     }
 }
