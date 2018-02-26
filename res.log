@@ -1,0 +1,13 @@
+array (
+  'from' => 'zh',
+  'to' => 'en',
+  'trans_result' => 
+  array (
+    0 => 
+    array (
+      'src' => '队列测试3',
+      'dst' => 'Queue test 3',
+    ),
+  ),
+)
+
