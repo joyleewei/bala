@@ -46,3 +46,4 @@ Route::post('upload_image','TopicsController@uploadImage')->name('topics.upload_
 // 上传测试
 Route::get('up','TopicsController@up')->name('up');
 Route::post('think_up','TopicsController@think_up')->name('think_up');
+Route::resource('replies', 'RepliesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
