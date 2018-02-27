@@ -4,38 +4,17 @@ namespace App\Http\Requests;
 
 class ReplyRequest extends Request
 {
-    public function rules()
-    {
-        switch($this->method())
-        {
-            // CREATE
-            case 'POST':
-            {
-                return [
-                    // CREATE ROLES
-                ];
-            }
-            // UPDATE
-            case 'PUT':
-            case 'PATCH':
-            {
-                return [
-                    // UPDATE ROLES
-                ];
-            }
-            case 'GET':
-            case 'DELETE':
-            default:
-            {
-                return [];
-            };
-        }
+    public function rules(){
+        return [
+            'content' => 'required|min:2',
+        ];
     }
 
     public function messages()
     {
         return [
-            // Validation messages
+            'content.required' => '回复的内容不能为空',
+            'content.min' => '回复的内容不能少于2个字符'
         ];
     }
 }
