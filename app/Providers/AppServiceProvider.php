@@ -6,7 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Carbon\Carbon;
 use App\Models\Topic;
+use App\Models\Reply;
 use App\Observers\TopicObserver;
+use App\Observers\ReplyObserver;
 
 class AppServiceProvider extends ServiceProvider{
     /**
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider{
         Schema::defaultStringLength(128);
         Carbon::setLocale('zh');
         Topic::observe( new TopicObserver );
+        Reply::observe( new ReplyObserver );
     }
 
     /**

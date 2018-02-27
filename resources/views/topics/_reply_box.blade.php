@@ -4,7 +4,7 @@
         {{ csrf_field() }}
         <input type="hidden" name="topic_id" value="{{ $topic->id }}" />
         <div class="form-group">
-            <textarea class="form-control" rows="3" placeholder="分享你的想法" name="content"></textarea>
+            <textarea class="form-control" rows="3" placeholder="分享你的想法" name="cont"></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-sm">
             <i class="fa fa-share"></i>回复

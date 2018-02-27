@@ -47,3 +47,5 @@ Route::post('upload_image','TopicsController@uploadImage')->name('topics.upload_
 Route::get('up','TopicsController@up')->name('up');
 Route::post('think_up','TopicsController@think_up')->name('think_up');
 Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']]);
+
+Route::resource('notifications','NotificationsController',['only'=>['index']]);

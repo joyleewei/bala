@@ -39,7 +39,7 @@ class SlugTranslateHandler{
         $response = $http->get($api.$query);
         $result = json_decode($response->getBody(),true);
 
-        file_put_contents('res.log',var_export($result,true)."\r\n\r\n",FILE_APPEND);
+        // file_put_contents('res.log',var_export($result,true)."\r\n\r\n",FILE_APPEND);
 
         /**
         获取结果，如果请求成功，dd($result) 结果如下：

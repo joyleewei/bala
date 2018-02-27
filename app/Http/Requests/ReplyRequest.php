@@ -6,15 +6,15 @@ class ReplyRequest extends Request
 {
     public function rules(){
         return [
-            'content' => 'required|min:2',
+            'cont' => 'required|min:2',
         ];
     }
 
     public function messages()
     {
         return [
-            'content.required' => '回复的内容不能为空',
-            'content.min' => '回复的内容不能少于2个字符'
+            'cont.required' => '回复的内容不能为空',
+            'cont.min' => '回复的内容不能少于2个字符'
         ];
     }
 }
