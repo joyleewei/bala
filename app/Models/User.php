@@ -57,6 +57,6 @@ class User extends Authenticatable
     public function markAsRead(){
         $this->notification_count = 0;
         $this->save();
-        $this->unreadNotifications()->markAsRead();
+        $this->unreadNotifications->markAsRead();
     }
 }
